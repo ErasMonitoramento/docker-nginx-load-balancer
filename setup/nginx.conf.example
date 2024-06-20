@@ -37,6 +37,13 @@ http {
             proxy_pass http://app_upstream;
             rewrite ^/(.*)$ /$1 break;
         }
+
+        #@to-do add SSL
+        # listen 443 ssl; # managed by Certbot
+        # ssl_certificate /etc/letsencrypt/live/api.selectatechnologies.com/fullchain.pem; # managed by Certbot
+        # ssl_certificate_key /etc/letsencrypt/live/api.selectatechnologies.com/privkey.pem; # managed by Certbot
+        # include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+        # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     }
 
     server {
@@ -49,4 +56,17 @@ http {
             rewrite ^/(.*)$ /$1 break;
         }
     }
+
+    #server {
+    #    if ($host = traccar-api.selectatechnologies.com) {
+    #        return 301 https://$host$request_uri;
+    #    } # managed by Certbot
+    #
+    #
+    #    listen 80;
+    #    server_name traccar-api.selectatechnologies.com;
+    #    return 404; # managed by Certbot
+    #
+    #}
+    
 }
