@@ -1,0 +1,5 @@
+docker-compose.yml
+setup/hosts
+setup/nginx.conf
+logs/*
+!logs/.gitkeep
